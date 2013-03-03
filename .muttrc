@@ -1,8 +1,12 @@
 # .muttrc
 #
+#_________________________________________________________login information
+
+source ~/.mutt/.login
+
+
 #_____________________________________________________________ User information
 set realname = "geoffroy tremblay"
-set from = gef@ponnuki.net
 set hostname = ponnuki.net
 #
 # # OS Stuff
@@ -110,13 +114,9 @@ set envelope_from = yes
 set mail_check = 60
 set timeout = 15
 set imap_list_subscribed = yes
-source ~/.mutt/.imap
 set imap_passive = no
 #
 
-set from="gef@ponnuki.net"
-set realname="geoffroy"
-set smtp_url=smtp://$my_user:$smtp_pass@tropicana.asmallorange.com
 #################### MARCO
 #
 
