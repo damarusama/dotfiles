@@ -25,12 +25,6 @@ macro index a     "|abook --add-email\n" 'add sender to abook'
 macro pager a     "|abook --add-email\n" 'add sender to abook'
 
 #_________________________________________________________________IMAP SETTINGS
-#set folder = imap://gef+ponnuki.net@tropicana.asmallorange.com/INBOX
-#set spoolfile = imap://tropicana.asmallorange.com/INBOX
-#set spoolfile ="+INBOX"
-#set record=imap://tropicana.asmallorange.com/INBOX.Sent
-#set postponed=imaps://tropicana.asmallorange.com/INBOX.Brouillons
-#set imap_check_subscribed
 #
 folder-hook =/sent  set sort=date-sent
 set sort_aux = date
