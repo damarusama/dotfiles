@@ -128,7 +128,21 @@ set statusline=%{WordCount()}
 	"setlocal linebreak 
 endfu 
 com! WM call WriterMood()
+let g:dark=1
+fu! ColorSwitch()
+	if g:dark
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=lightgrey 
+		let g:dark=0
+ToggleBG
+	else
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black 
+		let g:dark=1
+ToggleBG
+	endif
+endfu
 
+nnoremap <F4> :call ColorSwitch()<CR>
+com! SW call ColorSwitch()
 
 "Layout of the screen
 "
