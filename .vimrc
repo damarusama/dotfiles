@@ -85,6 +85,13 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+function! CheckBrightness()
+let g:light=system('/home/damaru/light.sh')
+endfunction	
+
+com! BR call CheckBrightness()
+
+
 if &term =~ "xterm\\|rxvt"
 	" use an orange cursor in insert mode
 	let &t_SI = "\<Esc>]12;orange\x7"
