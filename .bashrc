@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin:/opt
 
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -89,9 +89,8 @@ fi
 #alias la='ls -A'
 #alias l='ls -CF'
 
-alias processing='/opt/processing/processing'
 
-# GRC color for most commond command
+# GRC color for most common command
 alias ping='grc ping'
 alias netstat='grc netstat'
 alias traceroute='grc traceroute'
@@ -122,4 +121,3 @@ LIGHT=1;
 function w3g { w3m google.com/search?q="$1" ;}
 
 PS1="\[\033[34m\]\${PWD} \n\[\033[32m\]→  " 
-[[ -f "/home/damaru/.local/share/Steam/setup_debian_environment.sh" ]] && source "/home/damaru/.local/share/Steam/setup_debian_environment.sh"
