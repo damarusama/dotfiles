@@ -1,5 +1,9 @@
 *
 !.gitignore
+!.bashrc
 !.vimrc
 !README.md
 !.muttrc
+!.newsbeuter/
+!.newsbeuter/config
+!.newsbeuter/urls
