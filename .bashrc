@@ -94,10 +94,10 @@ fi
 alias ping='grc ping'
 alias netstat='grc netstat'
 alias traceroute='grc traceroute'
-
+alias viki='vim -c VimwikiIndex'
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function cpcd () { cp  "$@" && eval cd "\"\$$#\""; }
-
+function :h () { vim +"h $1" +only; }
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.

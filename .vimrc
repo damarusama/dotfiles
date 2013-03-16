@@ -48,7 +48,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle  'scrooloose/syntastic'
 "Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'mikewest/vimroom'
+"Bundle 'mikewest/vimroom'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -57,7 +57,6 @@ Bundle 'L9'
 "Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin indent on     " required!
-
 
 "GUI options
 set guioptions-=m  "remove menu bar
@@ -76,7 +75,7 @@ set mouse:a
 set number
 set cursorline
 set autoindent
-
+au FileType vimwiki setl nonumber
 " remove the possibility to move in insert mode
 " force to sheet back vim
 
@@ -84,6 +83,11 @@ noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
+
+" copy path of the open file in the register 
+
+nnoremap <F2> :let @" = expand("%:p") <CR>
+
 
 function! CheckBrightness()
 let g:light=system('/home/damaru/light.sh')
