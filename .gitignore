@@ -7,3 +7,5 @@
 !.newsbeuter/
 !.newsbeuter/config
 !.newsbeuter/urls
+!.irssi/
+!.irssi/config
