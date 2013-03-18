@@ -9,3 +9,5 @@
 !.newsbeuter/urls
 !.irssi/
 !.irssi/config
+!.w3m
+!.w3m/keymap
