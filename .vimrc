@@ -35,6 +35,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'thanthese/Tortoise-Typing'
 "Bundle 'mivok/vimtodo'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 Bundle 'Townk/vim-autoclose'
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'scrooloose/nerdtree'  
@@ -45,7 +46,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'mattn/zencoding-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'fholgado/minibufexpl.vim'
+" Bundle 'fholgado/minibufexpl.vim'
 Bundle  'scrooloose/syntastic'
 "Bundle 'nelstrom/vim-markdown-folding'
 "Bundle 'mikewest/vimroom'
@@ -74,6 +75,7 @@ syntax on
 set mouse:a
 set number
 set cursorline
+set cuc
 set autoindent
 au FileType vimwiki setl nonumber
 " remove the possibility to move in insert mode

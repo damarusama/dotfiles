@@ -39,7 +39,7 @@ set collapse_unread = no    #Do not let me collapse threads with unread msgs
 set uncollapse_jump = yes   #When uncollapsing, jump to new msgs
 set delete = yes
 #set index_format="%4C %Z %{%b %d} %-15.15n (%4l) %s"
-set index_format="%Z %{%b %d} %s %>. %n"
+set index_format="%Z %{%b %d} %s %c %>. %n"
 #
 #set arrow_cursor
 #
