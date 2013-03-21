@@ -9,16 +9,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black
 
 au FileType *  IndentGuidesEnable
 
-"for vundle
-set nocompatible               " be iMproved
-filetype off                   " required!
-
 "powerline
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 let g:Powerline_symbols = 'fancy'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""Plugins
+set nocompatible               " be iMproved
+filetype off                   " required!
 "Vim bundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -59,16 +58,17 @@ Bundle 'L9'
 
 filetype plugin indent on     " required!
 
-"GUI options
+""""""""""""""""""""""""""""""""""""""""""""""""""""GUI options
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 "set guifont=Droid\ Sans\ Mono\ 8
 set guifont=Source\ Code\ Pro\ 8 
 
-:set spell
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""General settings
+set spell
 set background=dark
-call togglebg#map("<F5>")
 "color jellybeans
 colorscheme solarized
 syntax on
@@ -77,26 +77,44 @@ set number
 set cursorline
 set cuc
 set autoindent
+
+"Layout of the screen
+"
+set scrolloff=999
+set colorcolumn=80
+let g:netrw_ignorenetrc=1
+
+set sw=2 ts=2 sts=4
+"let g:indent_guides_auto_colors = 1
+
+" VimWiki styling
 au FileType vimwiki setl nonumber
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""" Custom key mapping
+
+" copy path of the open file in the register 
+nnoremap <F2> :let @" = expand("%:p") <CR>
+"add time to buffer
+nnoremap <F3> "=strftime("%c")<CR>P
+" Switch color, but also the tab color
+nnoremap <F4> :call ColorSwitch()<CR>
+" Toggle bg from solarized
+call togglebg#map("<F5>")
+" Enter writer room mode
+nnoremap <F6> :call WriterMood()<CR>
+
+
 " remove the possibility to move in insert mode
 " force to sheet back vim
-
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-
-" copy path of the open file in the register 
-
-nnoremap <F2> :let @" = expand("%:p") <CR>
+:nmap D :! ./deploy
 
 
-function! CheckBrightness()
-let g:light=system('/home/damaru/light.sh')
-endfunction	
-
-com! BR call CheckBrightness()
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""" Functions
 
 if &term =~ "xterm\\|rxvt"
 	" use an orange cursor in insert mode
@@ -112,9 +130,7 @@ endif
 "setlocal foldmethod=syntax
 "let html_folding=1
 
-""""""""""""""""""""""""""""""""'writer room in vim
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""" writer room in vim
 function WordCount()
 	  let s:old_status = v:statusmsg
 		let position = getpos(".")
@@ -139,8 +155,9 @@ set statusline=%{WordCount()}
 "	set formatprg=par
 	"setlocal wrap 
 	"setlocal linebreak 
-endfu 
-com! WM call WriterMood()
+endfu
+
+" the color switch function to change the scheme but also IndentGuide
 let g:dark=1
 fu! ColorSwitch()
 	if g:dark
@@ -153,16 +170,3 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black
 ToggleBG
 	endif
 endfu
-
-nnoremap <F4> :call ColorSwitch()<CR>
-com! SW call ColorSwitch()
-
-"Layout of the screen
-"
-set scrolloff=999
-set colorcolumn=80
-let g:netrw_ignorenetrc=1
-
-:nmap D :! ./deploy
-set sw=2 ts=2 sts=4
-"let g:indent_guides_auto_colors = 1
