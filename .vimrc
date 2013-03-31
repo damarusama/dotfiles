@@ -36,6 +36,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'Townk/vim-autoclose'
+Bundle 'pekepeke/vim-markdown-helpfile'
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'scrooloose/nerdtree'  
 "Bundle 'rosenfeld/conque-term'
@@ -80,8 +81,8 @@ set autoindent
 
 "Layout of the screen
 "
-set scrolloff=999
-set colorcolumn=80
+"set scrolloff=999
+"set colorcolumn=80
 let g:netrw_ignorenetrc=1
 
 set sw=2 ts=2 sts=4
