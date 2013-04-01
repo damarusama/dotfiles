@@ -78,6 +78,11 @@ set number
 set cursorline
 set cuc
 set autoindent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""edit epub
+
+au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
+
+au BufReadCmd   *.epub      call zip#Browse
 
 "Layout of the screen
 "

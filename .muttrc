@@ -30,6 +30,12 @@ macro pager a     "|abook --add-email\n" 'add sender to abook'
 #
 #_________________________________________________________________IMAP SETTINGS
 #
+#
+#
+#CACHING
+
+set header_cache = "~/.mail/cache/head"
+set message_cachedir = "~./mail/cache/body"
 folder-hook =/sent  set sort=date-sent
 set sort_aux = date
 set strict_threads = no

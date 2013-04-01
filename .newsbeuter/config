@@ -12,6 +12,8 @@ show-keymap-hint        no
 show-read-articles      yes
 show-read-feeds         yes
 
+text-width	92
+
 articlelist-format "%f%D %?T?;%-17T; ?%t"
 
 always-display-description false
