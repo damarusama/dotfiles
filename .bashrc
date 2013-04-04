@@ -121,3 +121,5 @@ LIGHT=1;
 function w3g { w3m google.com/search?q="$1" ;}
 
 PS1="\[\033[34m\]\${PWD} \n\[\033[32m\]→  " 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
