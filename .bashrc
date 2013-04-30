@@ -107,7 +107,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-/usr/bin/synclient TapButton2=3
+#/usr/bin/synclient TapButton2=3
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

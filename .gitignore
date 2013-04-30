@@ -2,6 +2,7 @@
 !.gitignore
 !.bashrc
 !.vimrc
+!.inputrc
 !README.md
 !.muttrc
 !.newsbeuter/

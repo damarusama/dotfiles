@@ -86,8 +86,6 @@ au BufReadCmd   *.epub      call zip#Browse
 
 "Layout of the screen
 "
-"set scrolloff=999
-"set colorcolumn=80
 let g:netrw_ignorenetrc=1
 
 set sw=2 ts=2 sts=4
@@ -153,6 +151,8 @@ function WordCount()
 
 func! WriterMood() 
 	setlocal formatoptions=tcq 
+set scrolloff=999
+set colorcolumn=80
 	set foldcolumn=9
 	set nonumber
 		set wrapmargin=80
