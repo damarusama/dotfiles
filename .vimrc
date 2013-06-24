@@ -3,10 +3,15 @@ au BufNewFile *.php set ft=php.html
 
 " indent help plugin
 let g:indent_guides_auto_colors = 0
-
+let g:vimwiki_folding = 1
+let mapleader="'"
+"set startfoldlevel=1
+au BufWinLeave *.wiki mkview
+au BufWinEnter *.wiki silent loadview
+set fillchars+=fold:_
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black 
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222 ctermgb=grey
-
+au ColorScheme * :hi Folded ctermfg=black
 au FileType *  IndentGuidesEnable
 
 "powerline
@@ -39,6 +44,7 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'pekepeke/vim-markdown-helpfile'
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'scrooloose/nerdtree'  
+Bundle 'godlygeek/tabular'
 "Bundle 'rosenfeld/conque-term'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -73,7 +79,8 @@ set background=dark
 "color jellybeans
 colorscheme solarized
 syntax on
-set mouse:a
+set mouse:n
+set ttymouse=xterm2
 set number
 set cursorline
 set cuc
@@ -88,7 +95,7 @@ au BufReadCmd   *.epub      call zip#Browse
 "
 let g:netrw_ignorenetrc=1
 
-set sw=2 ts=2 sts=4
+set et sw=2 sts=2
 "let g:indent_guides_auto_colors = 1
 
 " VimWiki styling
@@ -96,6 +103,9 @@ au FileType vimwiki setl nonumber
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""" Custom key mapping
+
+"mapping cw to s-bs
+"map <C-[> <C-W>
 
 " copy path of the open file in the register 
 nnoremap <F2> :let @" = expand("%:p") <CR>
@@ -136,26 +146,26 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""" writer room in vim
 function WordCount()
-	  let s:old_status = v:statusmsg
-		let position = getpos(".")
-		  exe ":silent normal g\<c-g>"
-		let stat = v:statusmsg
-		let s:word_count =0 
-		if stat != '--No Lines in buffer--'
-			  let s:word_count = str2nr(split(v:statusmsg)[11])
-				  let v:statusmsg = s:old_status
-				end
-				call setpos('.',position)
-					  return s:word_count
-					endfunction
+let s:old_status = v:statusmsg
+let position = getpos(".")
+exe ":silent normal g\<c-g>"
+let stat = v:statusmsg
+let s:word_count =0 
+if stat != '--No Lines in buffer--'
+let s:word_count = str2nr(split(v:statusmsg)[11])
+let v:statusmsg = s:old_status
+end
+call setpos('.',position)
+return s:word_count
+endfunction
 
 func! WriterMood() 
-	setlocal formatoptions=tcq 
+setlocal formatoptions=tcq 
 set scrolloff=999
 set colorcolumn=80
-	set foldcolumn=9
-	set nonumber
-		set wrapmargin=80
+set foldcolumn=9
+set nonumber
+set wrapmargin=80
 
 set statusline=%{WordCount()}
 "	set formatprg=par

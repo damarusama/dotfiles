@@ -2,7 +2,10 @@
 #
 #_________________________________________________________login information
 #
-source ~/.mutt/.login
+source ~/.mutt/mailboxes
+set mbox_type=Maildir
+set folder=~/Mail
+
 #
 #
 #_____________________________________________________________ User information
@@ -34,9 +37,9 @@ macro pager a     "|abook --add-email\n" 'add sender to abook'
 #
 #CACHING
 
-set header_cache = "~/.mail/cache/head"
-set message_cachedir = "~./mail/cache/body"
-folder-hook =/sent  set sort=date-sent
+set header_cache = "/home/damaru/.mail/cache/head"
+set message_cachedir = "/home/damaru/.mail/cache/body"
+#folder-hook =/sent  set sort=date-sent
 set sort_aux = date
 set strict_threads = no
 set wrap_search = yes 
@@ -98,8 +101,8 @@ set forward_format = "Fwd: [ %s ]"
 set forward_quote = yes
 #
 #Folder and Mailbox
-#set copy = yes             # Save copy of outgoing msgs
-set record = +MuttMail/sent #Where do we keep sent messages?
+set copy = yes             # Save copy of outgoing msgs
+set record = "~/Mail/INBOX.Sent" #Where do we keep sent messages?
 set move = no
 set fcc_attach = yes       # Save outgoing attachments
 set fcc_clear = no         # Keep encryption/signatures
@@ -114,17 +117,49 @@ set edit_headers = no      #Headers in editor
 #set write_bcc = yes
 set use_from = yes
 set envelope_from = yes
+unset wait_key #removing the press anyykey to continue
 #
 #
 #IMAP
-set mail_check = 60
+#set mail_check = 60
 set timeout = 15
 set imap_list_subscribed = yes
 set imap_passive = no
 #
 #
-###################MARCO
+#_________________________________________________________________MARCO
 #
 #
 macro index <F2>  ":source ~/.muttrc\n" "Reloading"
 macro pager <F5> ":source ~/.muttrc\n" "Reloading"
+##offline imap
+macro index "'i" "<shell-escape>offlineimap -f INBOX<enter>" "Synchronize INBOX mails"
+macro index "'S" "<shell-escape>offlineimap -f " "Choose folder to synchronize"
+macro index "'s"            "<shell-escape>offlineimap -a profile<enter>"
+#msmtp
+macro index "'q" "<shell-escape>/usr/bin/msmtp-listqueue.sh -d  | less -r<enter>" "Show the local mail queuee"
+macro index "'f" "<shell-escape>/usr/bin/msmtp-runqueue.sh  | less -r<enter>" "Sending mail"'"'"
+
+#_________________________________________________________________IMAP SETTINGS
+#set folder = imap://gef+ponnuki.net@tropicana.asmallorange.com/INBOX
+#set spoolfile = imap://tropicana.asmallorange.com/INBOX
+set spoolfile ="+INBOX"
+#set record=imap://tropicana.asmallorange.com/INBOX.Sent
+#set postponed=imaps://tropicana.asmallorange.com/INBOX.Brouillons
+#set imap_check_subscribed
+#
+#set imap_user = gef+ponnuki.net
+#set imap_pass = g3f@p0nnuk!
+#
+
+#smtp
+#set smtp_pass= g3f@p0nnuk!
+#set my_user = gef+ponnuki.net
+#set smtp_url="smtp://$my_user:$smtp_pass@tropicana.asmallorange.com:26"
+#set from="gef@ponnuki.net"
+#set realname="geoffroy"
+#set smtp_url=smtp://$my_user:$smtp_pass@tropicana.asmallorange.com
+
+#use msmtp instead
+set sendmail="/usr/bin/msmtp-enqueue.sh"
+set from=gef@ponnuki.net
