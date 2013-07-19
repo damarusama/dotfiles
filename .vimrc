@@ -9,9 +9,10 @@ let mapleader="'"
 au BufWinLeave *.wiki mkview
 au BufWinEnter *.wiki silent loadview
 set fillchars+=fold:_
+au ColorScheme * :hi Folded ctermfg=22
+
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black 
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222 ctermgb=grey
-au ColorScheme * :hi Folded ctermfg=black
 au FileType *  IndentGuidesEnable
 
 "powerline
@@ -40,7 +41,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'mivok/vimtodo'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'Townk/vim-autoclose'
+"Bundle 'Townk/vim-autoclose'
 Bundle 'pekepeke/vim-markdown-helpfile'
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'scrooloose/nerdtree'  
@@ -121,10 +122,15 @@ nnoremap <F6> :call WriterMood()<CR>
 
 " remove the possibility to move in insert mode
 " force to sheet back vim
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+ino <Up> <nop>
+ino <BS> <C-w>
+ino <Down> <nop>
+ino <Left> <nop>
+ino <Right> <nop>
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
 :nmap D :! ./deploy
 
 
