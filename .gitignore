@@ -19,5 +19,6 @@
 !.config/
 !.config/openbox/
 !.config/openbox/rc.xml
-!.config/openbox/menu.xml
+!.tmuxinator/
+!.tmuxinator/hi.yml
 !.config/openbox/autostart
