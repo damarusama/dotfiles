@@ -15,3 +15,7 @@
 !.lftp/
 !.lftp/rc
 !.Xressource
+!.tmux.conf
+!.config/openbox/rc.xml
+!.config/openbox/menu.xml
+!.config/openbox/autostart
