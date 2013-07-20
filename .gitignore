@@ -22,3 +22,4 @@
 !.tmuxinator/
 !.tmuxinator/hi.yml
 !.config/openbox/autostart
+!.mailcap

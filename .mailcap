@@ -1,0 +1,13 @@
+image/*;display %s 2>&1 >/dev/null
+ image/png;display %s 2>&1 >/dev/null
+  image/tiff;display %s 2>&1 >/dev/null
+	 image/x-png;display %s 2>&1 >/dev/null
+	  image/x-portable-anymap;display %s 2>&1 >/dev/null
+		 image/x-portable-bitmap;display %s 2>&1 >/dev/null
+		  image/x-portable-graymap;display %s 2>&1 >/dev/null
+			 image/x-portable-pixmap;display %s 2>&1 >/dev/null
+			  image/x-xpixmap;display %s 2>&1 >/dev/null
+				 image/x-xwindowdump;display %s 2>&1 >/dev/null
+
+images/*;		display 
+images/png;	display 
